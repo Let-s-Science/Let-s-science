@@ -1,0 +1,37 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argon2 = { version = "0.5.1", features = ["zeroize"] }
+axum = { git = "https://github.com/tokio-rs/axum", version = "0.6.16", features = [
+    "macros",
+    "tracing",
+] }
+axum-extra = { git = "https://github.com/tokio-rs/axum", version = "0.7.4", features = [
+    "typed-header",
+] }
+deadpool-sqlite = "0.5.0"
+jsonwebtoken = "8.3.0"
+mnemonic = "1.0.1"
+once_cell = { version = "1.18.0", features = ["parking_lot"] }
+prql-compiler-macros = "0.9.3"
+rand_core = { version = "0.6.4", features = ["getrandom"] }
+refinery = { version = "0.8.10", features = ["rusqlite"] }
+rusqlite = { version = "0.29.0", features = ["time"] }
+secrecy = { version = "0.8.0", features = ["serde"] }
+serde = { version = "1.0.181", features = ["derive"] }
+serde_json = "1.0.104"
+serde_rusqlite = "0.33.1"
+time = { version = "0.3.25", features = ["serde", "formatting"] }
+tokio = { version = "1.29.1", features = ["rt-multi-thread", "macros"] }
+tower-http = { version = "0.4.3", features = ["trace", "cors"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+zeroize = { version = "1.6.0", features = ["serde"] }
+
+[patch.crates-io]
+deadpool-sqlite = { version = "0.5.0", package = "deadpool-sqlite", replace = "deadpool-sqlite", git = "https://github.com/JakubOnderka/deadpool", branch = "patch-1" }

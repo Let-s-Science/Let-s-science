@@ -1,0 +1,11 @@
+.tree > path {
+  @mixin dark {
+    fill: white;
+  }
+}
+
+.ground {
+  @mixin dark {
+    fill: white;
+  }
+}
